@@ -1,0 +1,68 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "name": "abc",
+      "username": "abc1",
+      "password": "abc45",
+      "address": "abc",
+      "country": "india",
+      "state": "Andhra",
+      "email": "sri@json",
+      "contact": "9491263275",
+      "dob": "25-4-2020",
+      "accType": "Savings Account",
+      "branchName": "Hanuman junctiom",
+      "initialDeposit": "500",
+      "identificationProofType": "AAdhar card"
+    },
+    {
+      "id": 2,
+      "name": "def",
+      "username": "def1",
+      "password": "def45",
+      "address": "def",
+      "country": "india",
+      "state": "Andhra",
+      "email": "def@json",
+      "contact": "9491263275",
+      "dob": "25-4-2020",
+      "accType": "Savings Account",
+      "branchName": "Hanuman junctiom",
+      "initialDeposit": "500",
+      "identificationProofType": "AAdhar card"
+    },
+    {
+      "id": "3",
+      "name": "Mrudhula",
+      "username": "mrudhula45",
+      "password": "sd",
+      "address": "sd",
+      "country": "Australia",
+      "state": "3",
+      "email": "sri@gmail.com",
+      "contact": "9876543210",
+      "dob": "2020-09-28",
+      "accType": "Saving Account",
+      "branchName": "hanuman junction",
+      "initialDeposit": 3561,
+      "identificationProofType": "Aadhar card"
+    },
+    {
+      "name": "Mrudhula",
+      "username": "mrudhula45",
+      "password": "hguj",
+      "address": "knnkl",
+      "country": "USA",
+      "state": "3",
+      "email": "sri@gmail.com",
+      "contact": "9876543210",
+      "dob": "2020-12-31",
+      "accType": "Saving Account",
+      "branchName": "hanuman junction",
+      "initialDeposit": "16",
+      "identificationProofType": "Aadhar card",
+      "id": 4
+    }
+  ]
+}

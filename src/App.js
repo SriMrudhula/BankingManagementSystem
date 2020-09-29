@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Register from './Components/RegisterForm/Register'
 import './App.css';
+import { render } from '@testing-library/react';
+import Login from './Components/Login Form/Login';
+import Home from './Components/Home'
+import Deposit from './Components/Deposit Form/Deposit';
 
-function App() {
+class App extends Component
+{
+  state={
+showRegister:true,
+showLogin:false
+  }
+  handleClick=event=>{
+    console.log(event);
+
+    if(event==='login')
+       this.setState({
+        showRegister:false,
+        showLogin:true
+       });
+       else if(event!=='login')
+       {
+         this.setState({
+           showLogin:false,
+           showRegister:true
+         })
+       }
+  }
+  render(){
+    let register=this.state.showRegister ?<Register handleClick={(event)=>this.handleClick(event)}/>:null
+    let login=this.state.showLogin ?<Login />:null
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Banking Management System</h1>
+      {register}
+      {login}
+      {/* <Deposit/> */}
+      {/* <Login/> */}
+
     </div>
   );
+}
 }
 
 export default App;
