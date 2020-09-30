@@ -12,14 +12,14 @@
     background-attachment: fixed;
 }
 
-.b3{
+.b4{
     display:inline-block;
-    width: 300px;
-    height: 300px;
-    padding: 30px;
+    width: 500px;
+    height: 700px;
+    padding: 20px;
     background-color: rgba(0,0,0,0.5);
     background-size: 400px 480px;   
-    margin-top:170px;
+    margin-top:100px;
     position: relative;
      } 
      label{

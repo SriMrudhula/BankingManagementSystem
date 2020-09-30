@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import './Register.css';
-import AppBar from '@material-ui/core/AppBar';
 import axios from 'axios';
-import Login from '../Login Form/Login';
-import { BrowserRouter, Route } from 'react-router-dom'
-
 class Register extends Component
 {
     state={    
-        users:[{name:"",
+        name:"",
         username:"",
         password:"",
         address:"",
@@ -20,9 +16,7 @@ class Register extends Component
         accType:"",
         branchName:"",
         initialDeposit:"",
-        identificationProofType:""}
-      ],
-      userErrors:[{
+        identificationProofType:"",
         nameError:"",
         usernameError:"",
         passwordError:"",
@@ -35,13 +29,15 @@ class Register extends Component
         accTypeError:"",
         branchNameError:"",
         initialDepositError:"",
-        identificationProofTypeError:""
-      }]    ,    
-      statesByCountry : {
-        India: ["Andhra Pradesh","Puri","Cuttack"],
-        USA: ["Teaxs","Pune","Nagpur"],
-        UK: ["kochi","Kanpur"]
-        }
+        identificationProofTypeError:"",  
+        AccountType:false,  
+        statesByCountry : {
+            India: ["Andhra Pradesh",'TamilNadu',"Chennai","Kerala","Maharashtra","Karnataka"],
+            USA: ["Texas","Washington","Virginia","California","Florida"],
+            Australia:["Western Australia","south Australia","Tasmania","Queensland","New South Wales"],
+            Canada:["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Northwest Territories","Nova Scotia"],
+            Denmark:["North Zealand","East Zealand"]
+            }
     }
     handleChange =event=>{
         this.setState({
@@ -102,25 +98,47 @@ class Register extends Component
         return true;
     };
 
-        makeSubmenu = value => {
-        if(value.length==0) document.getElementById("stateSelect").innerHTML = "<option></option>";
+        makeSubmenu = val => {
+            this.setState({
+                [val.target.name]:val.target.value
+            });
+            val=document.getElementById("countrySelect").value;
+        if(val.length==0) document.getElementById("stateSelect").innerHTML = "<option></option>";
         else {
         var stateOptions = "";
         console.log("hai.................."+this.state.country);
         stateOptions+="<option>Choose State</option>"
-        for(let stateId in this.state.statesByCountry[value]) {
-        stateOptions+="<option>"+this.state.statesByCountry[value][stateId]+"</option>";
+        for(let stateId in this.state.statesByCountry[val]) {
+        stateOptions+="<option>"+this.state.statesByCountry[val][stateId]+"</option>";
         }
         document.getElementById("stateSelect").innerHTML = stateOptions;
         console.log(stateOptions);
         }
+        }
+
+        setAccountType =event => {
+            this.setState({
+                [event.target.name]:event.target.value
+            });
+            event=new Date(document.getElementById('dob').value);
+            var year=event.getFullYear();
+            console.log(year+"    "+event);
+            var age=2020-parseInt(year,10);
+            var account=""
+            account="<option>Account Type</option><option>Salary Account</option>"
+        if(age>18){
+        account+="<option>Salary Account</option>";
+        }
+        document.getElementById("accType").innerHTML = account;
+        console.log(account);
+    
         }
     handleSubmit = event => {
         event.preventDefault();
         const isValid=this.validate();
         if(isValid){
         console.log(this.state);
-        axios.post('http://localhost:3000/users',this.state.users)
+        axios.post('http://localhost:3000/users',this.state)
         .then(respone =>{
             console.log(respone)
             this.handleClick("login");  
@@ -145,19 +163,19 @@ class Register extends Component
                 <div className="heading">Register</div><br/>
         <form onSubmit={this.handleSubmit} >
         <label>Name</label>
-        <input name="name" type="text" value={this.state.users.name} onChange={this.handleChange} required/>
-        <div className="err">{this.state.userErrors.nameError}</div><br/>
+        <input name="name" type="text" value={this.state.name} onChange={this.handleChange} required/>
+        <div className="err">{this.state.nameError}</div><br/>
         <label>Username</label>
-        <input name="username" type="text" value={this.state.users.username} onChange={this.handleChange} required/>
-        <div className="err">{this.state.userErrors.usernameError}</div><br/>
+        <input name="username" type="text" value={this.state.username} onChange={this.handleChange} required/>
+        <div className="err">{this.state.usernameError}</div><br/>
         <label>Password</label>
-        <input type="password" name="password" value={this.state.users.password} onChange={this.handleChange} required/>
+        <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required/>
         <div className="err">{this.state.passwordError}</div><br/>
         <label>Address </label>
-        <textarea value={this.state.users.address} name="address" onChange={this.handleChange}></textarea>
+        <textarea value={this.state.address} name="address" onChange={this.handleChange}></textarea>
         <div className="err">{this.state.addressError}</div><br/>
         <label>Country</label>
-        <select id="countrySelect" size="1" onChange={this.makeSubmenu.bind()} name="country" value={this.state.users.country} required>
+        <select id="countrySelect" onChange={this.makeSubmenu} name="country" value={this.state.country} required>
         <option value="">Choose Country</option>
         <option value="India">India</option>
         <option value="USA">USA</option>
@@ -166,38 +184,36 @@ class Register extends Component
         <option value="Canada">Canada</option>
         <option value="Denmark">Denmark</option>
         </select>
-        <div className="err">{this.state.userErrors.countryError}</div><br/>
+        <div className="err">{this.state.countryError}</div><br/>
         <label>Select State </label>
-        <select id="stateSelect" size="1" name="state" value={this.state.users.state} onChange={this.handleChange.bind(this)} required >
+        <select id="stateSelect" size="1" name="state" value={this.state.state} onChange={this.handleChange.bind(this)} required >
         <option>Choose State</option>
         <option></option>
         </select>
-        <div className="err">{this.state.userErrors.stateError}</div><br/>
+        <div className="err">{this.state.stateError}</div><br/>
         <label>Email Address</label>
-        <input text="email" value={this.state.users.email} name="email" onChange={this.handleChange} required/>
-        <div className="err">{this.state.userErrors.emailError}</div><br/>
+        <input text="email" value={this.state.email} name="email" onChange={this.handleChange} required/>
+        <div className="err">{this.state.emailError}</div><br/>
         <label>Contact number</label>
-        <input type="number" value={this.state.users.contact} name="contact" onChange={this.handleChange} required/>
-        <div className="err">{this.state.userErrors.contactError}</div><br/>
+        <input type="number" value={this.state.contact} name="contact" onChange={this.handleChange} required/>
+        <div className="err">{this.state.contactError}</div><br/>
         <label>Date of Birth</label>
-        <input type="date" value={this.state.users.dob} onChange={this.handleChange} name="dob" required/>
-        <div className="err">{this.state.userErrors.dobError}</div><br/>
+        <input type="date" id="dob" value={this.state.dob}  onChange={this.setAccountType} name="dob" required/>
+        <div className="err">{this.state.dobError}</div><br/>
         <label>Account type</label>
-        <select  value={this.state.users.accType} name="accType" onChange={this.handleChange} required>
-            <option value="" >Account type</option>
-            <option value="Saving Account">Saving Account</option>
-            <option value="Salary Account">Salary Account</option>
+        <select  value={this.state.accType} id="accType" name="accType" onChange={this.handleChange} required>
+            <option></option>
         </select>
-        <div className="err">{this.state.userErrors.accTypeError}</div><br/>
+        <div className="err">{this.state.accTypeError}</div><br/>
         <label>Branch Name</label>
-        <input type="text" value={this.state.users.branchName} name="branchName" onChange={this.handleChange} required/>
-        <div className="err">{this.state.userErrors.branchNameError}</div><br/>
+        <input type="text" value={this.state.branchName} name="branchName" onChange={this.handleChange} required/>
+        <div className="err">{this.state.branchNameError}</div><br/>
         <label>Initial Deposit Amount</label>
-        <input type="number" value={this.state.users.initialDeposit} name="initialDeposit" onChange={this.handleChange} required/>
-        <div className="err">{this.state.userErrors.initialDepositError}</div><br/>
+        <input type="number" value={this.state.initialDeposit} name="initialDeposit" onChange={this.handleChange} required/>
+        <div className="err">{this.state.initialDepositError}</div><br/>
         <label>Identification Proof type</label>
-        <input type="text" value={this.state.users.identificationProofType} name="identificationProofType" onChange={this.handleChange} required/> 
-        <div className="err">{this.state.userErrors.identificationProofTypeError}</div><br/>
+        <input type="text" value={this.state.identificationProofType} name="identificationProofType" onChange={this.handleChange} required/> 
+        <div className="err">{this.state.identificationProofTypeError}</div><br/>
         <button>submit</button>
         </form>
         Already Registered <button onClick={this.handleLogin}>Login</button> 
@@ -205,6 +221,6 @@ class Register extends Component
         </div>
         )
     }
-}
 
+}
 export default Register;

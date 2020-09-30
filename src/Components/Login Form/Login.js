@@ -12,10 +12,7 @@ class Login extends Component
     componentDidMount(){
         axios.get("http://localhost:3000/users")
         .then(response =>{
-            //console.log(response)
             this.state.users=response.data
-            // console.log(this.state.users);
-            // console.log(this.state.x);
         })
         .catch(error=>{
             console.log(error);
@@ -49,39 +46,27 @@ class Login extends Component
                  localStorage.setItem("branchName",this.state.users[i].branchName);
                  localStorage.setItem("initialDeposit",this.state.users[i].initialDeposit); 
                  localStorage.setItem("identificationProofType",this.state.users[i].identificationProofType); 
-               console.log( 
-                   localStorage.getItem("id")+"\n"+
-                localStorage.getItem("name")+"\n"+
-                localStorage.getItem("userName")+"\n"+
-                localStorage.getItem("password")+"\n"+
-                localStorage.getItem("address")+"\n"+
-                localStorage.getItem("country")+"\n"+
-                localStorage.getItem("state")+"\n"+
-                localStorage.getItem("email")+"\n"+
-                localStorage.getItem("contact")+"\n"+
-                localStorage.getItem("dob")+"\n"+
-                localStorage.getItem("accType")+"\n"+
-                localStorage.getItem("branchName")+"\n"+
-                localStorage.getItem("initialDeposit")+"\n"+ 
-                localStorage.getItem("identificationProofType") 
-              );
                  alert("valid");
-                  break;
+                 this.handleClick("home");  
+                 break;
              }
-             else{
-                 this.state.x="invalid user";
-                 
+             else
+                 this.state.x="invalid user";             
              }
+            if(this.state.x==="invalid user")
+               alert("invalid");
         }
-    }
+    
+handleClick = event => {
+      this.props.handleClick(event);     
+  };   
     render()
     {
     return (
         <div className="img2">
             <div className="b3">
-                <div className="heading">Register</div><br/>
+                <div className="heading">Login</div><br/>
         <form onSubmit={this.handleSubmit} >
-
         <label>Username</label>
         <input name="username" type="text" value={this.state.username} onChange={this.handleChange} required/>
         <div className="err">{this.state.usernameError}</div><br/>
@@ -93,7 +78,6 @@ class Login extends Component
         </div>
         </div>
     )
-    }
 }
-
+}
 export default Login;

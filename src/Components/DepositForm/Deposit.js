@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './Deposit.css';
-import AppBar from '@material-ui/core/AppBar';
+import Loan from '../Loan Form/Loan'
 import axios from 'axios';
-import Login from '../Login Form/Login';
-import { BrowserRouter, Route } from 'react-router-dom'
 class Deposit extends Component
 {
   state={    
@@ -68,8 +66,6 @@ class Deposit extends Component
     handleSubmit = event => {
         event.preventDefault();    
         this.state.users[0].initialDeposit=parseInt(this.state.users[0].initialDeposit,10)+parseInt(this.state.deposit,10);
-
-        alert(this.state.users[0].initialDeposit+"  "+this.state.users[0].id+"   "+this.state.users[0].accType);
         axios.put('http://localhost:3000/users/'+this.state.users[0].id,this.state.users[0])
         .then(respone =>{
             console.log(respone);
