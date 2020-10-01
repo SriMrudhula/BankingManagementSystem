@@ -1,6 +1,7 @@
-.err{
+.err1{
     font-size: 15px;
     color: red;
+    margin-left:250px;
 }
 textarea{
     height: 40px;
@@ -10,7 +11,7 @@ textarea{
 }
 .img1{
     background-image: url('../../Asserts/banking.jpg');
-    height: 920px;
+    height: 940px;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: -90px;
@@ -21,7 +22,7 @@ textarea{
 .b1{
     display:inline-block;
     width: 600px;
-    height: 770px;
+    height: 790px;
     padding: 20px;
     background-color: rgba(0,0,0,0.5);
     background-size: 400px 480px;   

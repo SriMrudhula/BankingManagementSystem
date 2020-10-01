@@ -23,9 +23,11 @@ return(
     <Route path="/logout" component={Register}/>
 </Switch>
 </Router>
+<div className="img2"></div>
+
 </div>
+
     );
 }
 }
-
 export default Home;

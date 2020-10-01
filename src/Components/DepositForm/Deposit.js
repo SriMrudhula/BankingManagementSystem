@@ -63,6 +63,9 @@ class Deposit extends Component
             [event.target.name]:event.target.value
         });
     };
+    handleClick = event => {
+      this.props.handleClick(event);     
+  };   
     handleSubmit = event => {
         event.preventDefault();    
         this.state.users[0].initialDeposit=parseInt(this.state.users[0].initialDeposit,10)+parseInt(this.state.deposit,10);
@@ -71,6 +74,7 @@ class Deposit extends Component
             console.log(respone);
             alert("Your balance is " +this.state.users[0].initialDeposit);
             localStorage.setItem("initialDeposit",this.state.users[0].initialDeposit); 
+            this.handleClick("home");  
         })
         .catch(error=>{
             console.log(error)

@@ -46,7 +46,7 @@ class Login extends Component
                  localStorage.setItem("branchName",this.state.users[i].branchName);
                  localStorage.setItem("initialDeposit",this.state.users[i].initialDeposit); 
                  localStorage.setItem("identificationProofType",this.state.users[i].identificationProofType); 
-                 alert("valid");
+                 alert("Successfully Loggedin");
                  this.handleClick("home");  
                  break;
              }
@@ -56,8 +56,12 @@ class Login extends Component
             if(this.state.x==="invalid user")
                alert("invalid");
         }
-    
+        handleRegister=()=>
+        {
+          this.handleClick("register");  
+        }
 handleClick = event => {
+    console.log(event);
       this.props.handleClick(event);     
   };   
     render()
@@ -75,6 +79,7 @@ handleClick = event => {
         <div className="err">{this.state.passwordError}</div><br/>
         <button >Login</button>
         </form>
+        Create an Account <button onClick={this.handleRegister}>Register</button> 
         </div>
         </div>
     )

@@ -60,9 +60,9 @@ class Register extends Component
        let initialDepositError=""
        let identificationProofTypeError=""
        if(!(this.state.email.includes("@") && this.state.email.includes(".com"))){
-           emailError='invalid email';
+           emailError='Please enter correct email';
            if(!this.state.name.includes("^[a-zA-Z]+$")){
-               nameError="Please enter "
+               nameError="Please enter Username "
            }
            else
                nameError=""
@@ -106,13 +106,11 @@ class Register extends Component
         if(val.length==0) document.getElementById("stateSelect").innerHTML = "<option></option>";
         else {
         var stateOptions = "";
-        console.log("hai.................."+this.state.country);
         stateOptions+="<option>Choose State</option>"
         for(let stateId in this.state.statesByCountry[val]) {
         stateOptions+="<option>"+this.state.statesByCountry[val][stateId]+"</option>";
         }
         document.getElementById("stateSelect").innerHTML = stateOptions;
-        console.log(stateOptions);
         }
         }
 
@@ -125,7 +123,7 @@ class Register extends Component
             console.log(year+"    "+event);
             var age=2020-parseInt(year,10);
             var account=""
-            account="<option>Account Type</option><option>Salary Account</option>"
+            account="<option>Account Type</option><option>Savings Account</option>"
         if(age>18){
         account+="<option>Salary Account</option>";
         }
@@ -164,16 +162,16 @@ class Register extends Component
         <form onSubmit={this.handleSubmit} >
         <label>Name</label>
         <input name="name" type="text" value={this.state.name} onChange={this.handleChange} required/>
-        <div className="err">{this.state.nameError}</div><br/>
+        <div className="err1">{this.state.nameError}</div><br/>
         <label>Username</label>
         <input name="username" type="text" value={this.state.username} onChange={this.handleChange} required/>
-        <div className="err">{this.state.usernameError}</div><br/>
+        <div className="err1">{this.state.usernameError}</div><br/>
         <label>Password</label>
         <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required/>
-        <div className="err">{this.state.passwordError}</div><br/>
+        <div className="err1">{this.state.passwordError}</div><br/>
         <label>Address </label>
         <textarea value={this.state.address} name="address" onChange={this.handleChange}></textarea>
-        <div className="err">{this.state.addressError}</div><br/>
+        <div className="err1">{this.state.addressError}</div><br/>
         <label>Country</label>
         <select id="countrySelect" onChange={this.makeSubmenu} name="country" value={this.state.country} required>
         <option value="">Choose Country</option>
@@ -184,37 +182,37 @@ class Register extends Component
         <option value="Canada">Canada</option>
         <option value="Denmark">Denmark</option>
         </select>
-        <div className="err">{this.state.countryError}</div><br/>
+        <div className="err1">{this.state.countryError}</div><br/>
         <label>Select State </label>
         <select id="stateSelect" size="1" name="state" value={this.state.state} onChange={this.handleChange.bind(this)} required >
         <option>Choose State</option>
         <option></option>
         </select>
-        <div className="err">{this.state.stateError}</div><br/>
+        <div className="err1">{this.state.stateError}</div><br/>
         <label>Email Address</label>
         <input text="email" value={this.state.email} name="email" onChange={this.handleChange} required/>
-        <div className="err">{this.state.emailError}</div><br/>
+        <div className="err1">{this.state.emailError}</div><br/>
         <label>Contact number</label>
         <input type="number" value={this.state.contact} name="contact" onChange={this.handleChange} required/>
-        <div className="err">{this.state.contactError}</div><br/>
+        <div className="err1">{this.state.contactError}</div><br/>
         <label>Date of Birth</label>
         <input type="date" id="dob" value={this.state.dob}  onChange={this.setAccountType} name="dob" required/>
-        <div className="err">{this.state.dobError}</div><br/>
+        <div className="err1">{this.state.dobError}</div><br/>
         <label>Account type</label>
         <select  value={this.state.accType} id="accType" name="accType" onChange={this.handleChange} required>
             <option></option>
         </select>
-        <div className="err">{this.state.accTypeError}</div><br/>
+        <div className="err1">{this.state.accTypeError}</div><br/>
         <label>Branch Name</label>
         <input type="text" value={this.state.branchName} name="branchName" onChange={this.handleChange} required/>
-        <div className="err">{this.state.branchNameError}</div><br/>
+        <div className="err1">{this.state.branchNameError}</div><br/>
         <label>Initial Deposit Amount</label>
         <input type="number" value={this.state.initialDeposit} name="initialDeposit" onChange={this.handleChange} required/>
-        <div className="err">{this.state.initialDepositError}</div><br/>
+        <div className="err1">{this.state.initialDepositError}</div><br/>
         <label>Identification Proof type</label>
         <input type="text" value={this.state.identificationProofType} name="identificationProofType" onChange={this.handleChange} required/> 
-        <div className="err">{this.state.identificationProofTypeError}</div><br/>
-        <button>submit</button>
+        <div className="err1">{this.state.identificationProofTypeError}</div><br/>
+        <button>Submit</button>
         </form>
         Already Registered <button onClick={this.handleLogin}>Login</button> 
         </div>
