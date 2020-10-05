@@ -15,6 +15,7 @@ showHome:false
   }
   handleClick=event=>{
     console.log(event);
+    
      if(event==='login')
        this.setState({
         showRegister:false,
@@ -44,15 +45,13 @@ showHome:false
 
     let register=this.state.showRegister ?<Register handleClick={(event)=>this.handleClick(event)}/>:null
     let login=this.state.showLogin ?<Login handleClick={(event)=>this.handleClick(event)}/>:null
-    let home=this.state.showHome?<Home />:null
+    let home=this.state.showHome?<Home/>:null
   return (
     <div className="App">
        
-       {/* {register}
+       {register}
       {login}
-      {home} */}
-
-      <Home/>
+      {home}
     </div>
   );
 }

@@ -3,12 +3,7 @@
     color: red;
     margin-left:250px;
 }
-textarea{
-    height: 40px;
-    width:150px;
-    border-radius: 7px;
-    margin-left: 60px;
-}
+
 .img1{
     background-image: url('../../Asserts/banking.jpg');
     height: 940px;
@@ -32,14 +27,14 @@ textarea{
      label{
        font-size: large;
         color: white;
-        margin-left: 20px;
     }
-    
-
-    input,select{
-        margin-left: 60px;
+    input{
+        height:50px;
+        width:100px;
     }
-    
+    select{
+        font: inherit;
+    }
     .heading{
         color: white;
         font-size: 30px;

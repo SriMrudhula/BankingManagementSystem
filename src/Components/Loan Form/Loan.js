@@ -3,7 +3,7 @@ import './Loan.css';
 import AppBar from '@material-ui/core/AppBar';
 import axios from 'axios';
 import Login from '../Login Form/Login';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 
 class Loan extends Component
 {
@@ -66,6 +66,7 @@ class Loan extends Component
                "                Father Occupation:"+response.data[0].fatherOcc+
                "\n Father Annual Income:"+response.data[0].fathAnInc);
                }
+               this.setState({ redirect: "/home" });
             }
                else{
                    this.state.loan=false;
@@ -82,9 +83,6 @@ class Loan extends Component
             [event.target.name]:event.target.value
         });
     };
-    handleClick = event => {
-        this.props.handleClick(event);     
-    };   
     handleSubmit = event => {
         event.preventDefault();    
         console.log(this.state);
@@ -94,7 +92,8 @@ class Loan extends Component
         .then(respone =>{
             console.log(respone)  
             alert("Applied for loan successfully");
-            this.handleClick("home");  
+            alert("redirect");
+            this.setState({ redirect: "/home" });
         })
         .catch(error=>{
             console.log(error)
@@ -104,6 +103,9 @@ class Loan extends Component
 
     render()
     {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+      }
     return (
         <div className="img3">
             <div className="b4">

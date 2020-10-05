@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Deposit.css';
 import Loan from '../Loan Form/Loan'
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 class Deposit extends Component
 {
   state={    
@@ -36,10 +37,9 @@ class Deposit extends Component
     initialDepositError:"",
     identificationProofTypeError:""
   }],
-  deposit:""
+  deposit:"",
+  redirect: null 
   }
-
-
   constructor(){
     super();
     this.state.users[0].id=localStorage.getItem("id");
@@ -63,9 +63,7 @@ class Deposit extends Component
             [event.target.name]:event.target.value
         });
     };
-    handleClick = event => {
-      this.props.handleClick(event);     
-  };   
+       
     handleSubmit = event => {
         event.preventDefault();    
         this.state.users[0].initialDeposit=parseInt(this.state.users[0].initialDeposit,10)+parseInt(this.state.deposit,10);
@@ -73,23 +71,35 @@ class Deposit extends Component
         .then(respone =>{
             console.log(respone);
             alert("Your balance is " +this.state.users[0].initialDeposit);
-            localStorage.setItem("initialDeposit",this.state.users[0].initialDeposit); 
-            this.handleClick("home");  
+            localStorage.setItem("initialDeposit",this.state.users[0].initialDeposit);
+            this.setState({ redirect: "/home" });
+
         })
         .catch(error=>{
             console.log(error)
-        })        
+        })    
     };
     checkBalance=()=>{
       alert("Your Balance is "+this.state.users[0].initialDeposit);
+      this.setState({ redirect: "/home" });
     }
+    handleClick = event => {
+      alert(event);
+      this.props.handleClick(event);     
+  };
     render()
     {
+      if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+      }
     return (
+
         <div className="img3">
             <div className="b2">
                 <div className="heading">Deposit</div><br/>
-        <form onSubmit={this.handleSubmit} >
+        <form onSubmit={this.handleSubmit}>
+          <label>Name</label>
+          <input type="text" value={this.state.users[0].name} name="name"/><br/><br/>
         <label>Account type</label>
         <select  value={this.state.users[0].accType} name="accType" onChange={this.handleChange} required>
             <option value="Salary Account">Salary Account</option>
@@ -105,11 +115,12 @@ class Deposit extends Component
         <div className="b2">
             <div className="heading">Balance</div><br/>
         <form >
-          <div className="data">Do You Want to Check Balance?</div><br/><br/><br/>
+          <div className="data">Do You Want to Check Balance?</div><br/><br/><br/><br/><br/>
         <button className="btn1" onClick={this.checkBalance}>Balance</button>
         </form> 
         </div>
         </div>
+        
         )
     }
 }
