@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Home.css';
+
 import {BrowserRouter as Router,Link,Route,Switch} from 'react-router-dom';
 import Deposit from './DepositForm/Deposit';
 import Loan from './Loan Form/Loan';
@@ -9,7 +10,7 @@ class Home extends Component
 render()
 {
 return(
-    <div>
+    <div className="img6">
 <Router>
 <ul>
   <li><Link to="/">Home</Link></li>
@@ -23,7 +24,7 @@ return(
     <Route path="/logout" component={Register}/>
 </Switch>
 </Router>
-<div className="img2"></div>
+
 
 </div>
 

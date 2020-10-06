@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Login.css';
 import axios from 'axios';
+import { Col, Row } from 'reactstrap';
+import { Container } from '@material-ui/core';
 class Login extends Component
 {
     state={   
@@ -18,13 +20,14 @@ class Login extends Component
             console.log(error);
         })
     }
+
     handleChange =event=>{
         this.setState({
             [event.target.name]:event.target.value
         });
     };
+    
     handleSubmit= event =>{
-        console.log(this.state.users);
         for(let i=0;i<this.state.users.length;i++)
         {
             console.log(this.state.users[i].username+" "+this.state.username);
@@ -56,33 +59,37 @@ class Login extends Component
             if(this.state.x==="invalid user")
                alert("invalid");
         }
-        handleRegister=()=>
-        {
-          this.handleClick("register");  
-        }
-handleClick = event => {
-    console.log(event);
-      this.props.handleClick(event);     
-  };   
+    handleRegister=()=>
+    {
+        this.handleClick("register");  
+    }
+    handleClick = event => {
+        this.props.handleClick(event);     
+    };   
     render()
     {
-    return (
-        <div className="img2">
+        return (
+            <div className="img2">
             <div className="b3">
-                <div className="heading">Login</div><br/>
-        <form onSubmit={this.handleSubmit} >
-        <label>Username</label>
-        <input name="username" type="text" value={this.state.username} onChange={this.handleChange} required/>
-        <div className="err">{this.state.usernameError}</div><br/>
-        <label>password</label>
-        <input name="password" type="password" value={this.state.password} onChange={this.handleChange} required/>
-        <div className="err">{this.state.passwordError}</div><br/>
-        <button >Login</button>
-        </form>
-        Create an Account <button onClick={this.handleRegister}>Register</button> 
-        </div>
-        </div>
-    )
-}
-}
+            <div className="heading">Login</div><br/><br/>
+            <Container>
+            <form onSubmit={this.handleSubmit} >
+            <div className="form-group">
+            <Row>
+            <input name="username" type="text" placeholder="Enter UserName" className="form-control" value={this.state.username} onChange={this.handleChange} required/>
+            </Row><br/>
+            <Row>
+            <input name="password" type="password" placeholder="Enter Password" className="form-control" value={this.state.password} onChange={this.handleChange} required/>
+            
+            </Row><br/>
+            <button className="btn-primary">Login</button>
+            </div>
+            </form>
+            </Container>
+            Create an Account <button onClick={this.handleRegister}>Register</button> 
+            </div>
+            </div>
+            )
+        }
+    }
 export default Login;

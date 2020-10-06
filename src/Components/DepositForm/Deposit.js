@@ -3,6 +3,8 @@ import './Deposit.css';
 import Loan from '../Loan Form/Loan'
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
+import { Container } from '@material-ui/core';
+import { Row, Col} from 'reactstrap';
 class Deposit extends Component
 {
   state={    
@@ -18,25 +20,10 @@ class Deposit extends Component
     contact:"",
     dob:"",
     accType:"",
-    branchName:"",
+    branchName:"",  
     initialDeposit:"",
     identificationProofType:""}
   ],
-  userErrors:[{
-    nameError:"",
-    usernameError:"",
-    passwordError:"",
-    addressError:"",
-    countryError:"",
-    stateError:"",
-    emailError:"",
-    contactError:"",
-    dobError:"",
-    accTypeError:"",
-    branchNameError:"",
-    initialDepositError:"",
-    identificationProofTypeError:""
-  }],
   deposit:"",
   redirect: null 
   }
@@ -95,32 +82,42 @@ class Deposit extends Component
     return (
 
         <div className="img3">
+          <Row>
             <div className="b2">
-                <div className="heading">Deposit</div><br/>
-        <form onSubmit={this.handleSubmit}>
+                <div className="heading">Deposit</div>
+                <Container>
+        <form onSubmit={this.handleSubmit} >
+        <div className="form-group">
+                <Row>
+                  <Col>
           <label>Name</label>
-          <input type="text" value={this.state.users[0].name} name="name"/><br/><br/>
+          <input type="text" value={this.state.users[0].name} className="form-control" onChange={this.handleChange} name="name"/>
+           </Col>
+          <Col>
         <label>Account type</label>
-        <select  value={this.state.users[0].accType} name="accType" onChange={this.handleChange} required>
+        <select  value={this.state.users[0].accType} name="accType" className="form-control" onChange={this.handleChange} required>
             <option value="Salary Account">Salary Account</option>
             <option value="Saving Account">Saving Account</option>
         </select>
-        <div className="err">{this.state.userErrors.accTypeError}</div><br/>
+        </Col>
+        </Row><br/>
+        <Row>
         <label>Deposit Amount</label>
-        <input type="number" value={this.state.deposit} name="deposit" onChange={this.handleChange} required/>
-        <div className="err">{this.state.userErrors.initialDepositError}</div><br/>
-        <button className="btn">Deposit</button>
-        </form> 
+        <input type="number" value={this.state.deposit} name="deposit" className="form-control" onChange={this.handleChange} required/>
+        </Row><br/>
+        <button className="btn-primary">Deposit</button>
         </div>
-        <div className="b2">
-            <div className="heading">Balance</div><br/>
+        </form> 
+        </Container>
+        </div>
+        <div className="b6">
         <form >
-          <div className="data">Do You Want to Check Balance?</div><br/><br/><br/><br/><br/>
-        <button className="btn1" onClick={this.checkBalance}>Balance</button>
+        <button className="btn1" onClick={this.checkBalance}>My Balance</button>
         </form> 
-        </div>
-        </div>
         
+        </div>
+        </Row>
+        </div>
         )
     }
 }

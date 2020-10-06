@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import './Register.css';
 import axios from 'axios';
-import { Col, Row } from 'reactstrap';
+import { Col, Row, Button } from 'reactstrap';
 import { Container } from '@material-ui/core';
+const statesByCountry = {
+    India: ["Andhra Pradesh",'TamilNadu',"Chennai","Kerala","Maharashtra","Karnataka"],
+    USA: ["Texas","Washington","Virginia","California","Florida"],
+    Australia:["Western Australia","south Australia","Tasmania","Queensland","New South Wales"],
+    Canada:["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Northwest Territories","Nova Scotia"],
+    Denmark:["North Zealand","East Zealand"]
+    }
 class Register extends Component
 {
     state={    
@@ -26,13 +33,7 @@ class Register extends Component
         usernameError:"",  
         AccountType:false,
         duplicateUser:false,  
-        statesByCountry : {
-            India: ["Andhra Pradesh",'TamilNadu',"Chennai","Kerala","Maharashtra","Karnataka"],
-            USA: ["Texas","Washington","Virginia","California","Florida"],
-            Australia:["Western Australia","south Australia","Tasmania","Queensland","New South Wales"],
-            Canada:["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Northwest Territories","Nova Scotia"],
-            Denmark:["North Zealand","East Zealand"]
-            },
+
             users:[]
     }
     componentDidMount(){
@@ -100,9 +101,9 @@ class Register extends Component
         {
             var stateOptions = "";
             stateOptions+="<option>Choose State</option>"
-            for(let stateId in this.state.statesByCountry[event])
+            for(let stateId in statesByCountry[event])
             {
-                stateOptions+="<option>"+this.state.statesByCountry[event][stateId]+"</option>";
+                stateOptions+="<option>"+statesByCountry[event][stateId]+"</option>";
             }
             document.getElementById("stateSelect").innerHTML = stateOptions;
         }
@@ -131,7 +132,11 @@ class Register extends Component
                 alert("Password and Confirm Password are not same");
             else
             {
-            axios.post('http://localhost:3000/users',this.state)
+                let user={name:this.state.name,username:this.state.username,password:this.state.password,confirmPwd:this.state.confirmPwd,
+                address:this.state.address,country:this.state.country,state:this.state.state,email:this.state.email,contact:this.state.contact,
+                dob:this.state.dob,accType:this.state.accType,branchName:this.state.branchName,initialDeposit:this.state.initialDeposit,
+                identificationProofType:this.state.identificationProofType,id:Math.floor(Math.random()*100)+1}
+            axios.post('http://localhost:3000/users',user)
             .then(respone =>{
             this.handleClick("login");  
             })
@@ -221,10 +226,10 @@ class Register extends Component
         </Row><br/>
         <Row>
         <Col>
-        <input type="text" value={this.state.branchName} Placeholder="Enter Branch Name" className="form-control" name="branchName" onChange={this.handleChange} required/>
+        <input type="text" value={this.state.branchName} placeholder="Enter Branch Name" className="form-control" name="branchName" onChange={this.handleChange} required/>
         </Col>
         <Col>
-        <input type="number" value={this.state.initialDeposit} Placeholder="Enter Initial Deposit" className="form-control" name="initialDeposit" onChange={this.handleChange} required/>
+        <input type="number" value={this.state.initialDeposit} placeholder="Enter Initial Deposit" className="form-control" name="initialDeposit" onChange={this.handleChange} required/>
         </Col>
         </Row><br/>
         <Row>
@@ -233,7 +238,7 @@ class Register extends Component
         <Row>
         <input type="text" value={this.state.identificationProofType} placeholder="Enter Identification Proof type" className="form-control" name="identificationProofType" onChange={this.handleChange} required/> 
         </Row><br/>
-        <button>Submit</button>
+        <Button className="Btn" color="primary">Register</Button>
         </div>
         </form>
         Already Registered <button onClick={this.handleLogin}>Login</button> 

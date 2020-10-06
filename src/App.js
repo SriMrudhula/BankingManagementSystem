@@ -52,6 +52,8 @@ showHome:false
        {register}
       {login}
       {home}
+
+
     </div>
   );
 }

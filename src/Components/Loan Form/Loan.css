@@ -4,33 +4,33 @@
 }
 .img2{
     background-image: url('../../Asserts/banking.jpg');
-    height: 590px;
+    height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: -90px;
+    margin-top: 0px;
     width:100%;
     background-attachment: fixed;
+    overflow-x: hidden; 
 }
 
 .b4{
     display:inline-block;
-    width: 500px;
-    height:600px;
+    width: 700px;
+    height:440px;
     padding: 20px;
     background-color: rgba(0,0,0,0.5);
     background-size: 400px 480px;   
-    margin-top:100px;
+    margin-left:170px;
     position: relative;
      } 
      .b5{
         display:inline-block;
-        width: 300px;
-        height: 100px;
+        width: 200px;
+        height: 120px;
         padding: 50px;
         background-color: rgba(0,0,0,0.5);
-        background-size: 400px 480px;  
-        margin-left:100px;    
-        margin-top:-100px;
+        margin-left:210px;    
+        margin-top: -20px;
         position: relative;
          } 
      label{
@@ -38,18 +38,15 @@
         color: white;
         margin-left: 30px;
     }
-    input{
-        margin-left: 60px;
-    }
     .heading{
         color: white;
         font-size: 30px;
     }
     .btn1{
-        margin-left: auto;
         height:50px;
     width:100px;
-    border-radius: 10px;
+    margin-top: -20px;
+    border-radius: 25px;
     }
     .dis{
         display:none;

@@ -1,23 +1,26 @@
 .err1{
     font-size: 15px;
     color: red;
-    margin-left:250px;
 }
 
 .img1{
     background-image: url('../../Asserts/banking.jpg');
-    height: 940px;
+    height: 850px;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: -90px;
     width:100%;
     background-attachment: fixed;
 }
-
+.btn-primary{
+    width:100px;
+    height: 50px;
+    border-radius: 15px;
+}
 .b1{
     display:inline-block;
     width: 600px;
-    height: 790px;
+    height: 720px;
     padding: 20px;
     background-color: rgba(0,0,0,0.5);
     background-size: 400px 480px;   
