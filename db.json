@@ -64,6 +64,23 @@
       "initialDeposit": "900",
       "identificationProofType": "Aadhar card",
       "id": 47
+    },
+    {
+      "name": "mno",
+      "username": "mno",
+      "password": "mno",
+      "confirmPwd": "mno",
+      "address": "you",
+      "country": "India",
+      "state": "Andhra Pradesh",
+      "email": "mno@gmail.com",
+      "contact": "9876543210",
+      "dob": "2019-12-31",
+      "accType": "Savings Account",
+      "branchName": "hanuman junction",
+      "initialDeposit": "900",
+      "identificationProofType": "Aadhar card",
+      "id": 89
     }
   ],
   "Loan": [

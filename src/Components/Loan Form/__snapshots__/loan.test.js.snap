@@ -1,0 +1,305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test when form is submitted renders correctly 1`] = `
+<div
+  className="img2"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="b4"
+    >
+      <div
+        className="heading"
+      >
+        Loan
+      </div>
+      <div
+        className="MuiContainer-root MuiContainer-maxWidthLg"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col"
+              >
+                <input
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  onChange={[Function]}
+                  placeholder="Name"
+                  required={true}
+                  type="text"
+                  value={null}
+                />
+              </div>
+              <div
+                className="col"
+              >
+                <select
+                  className="form-control"
+                  id="loanType"
+                  name="loanType"
+                  onChange={[Function]}
+                  required={true}
+                  value=""
+                >
+                  <option>
+                    Loan Type
+                  </option>
+                  <option
+                    value="Student Loan"
+                  >
+                    Student Loan
+                  </option>
+                  <option
+                    value="Home/Personal Loan"
+                  >
+                    Home/Personal Loan
+                  </option>
+                </select>
+              </div>
+            </div>
+            <br />
+            <div
+              className="row"
+            >
+              <div
+                className="col"
+              >
+                <input
+                  className="form-control"
+                  name="loanAmount"
+                  onChange={[Function]}
+                  placeholder="Loan Amount"
+                  required={true}
+                  type="number"
+                  value=""
+                />
+              </div>
+              <div
+                className="col"
+              >
+                <input
+                  className="form-control"
+                  name="loanApplyDate"
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Loan Apply Date"
+                  required={true}
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <br />
+            <div
+              className="row"
+            >
+              <div
+                className="col"
+              >
+                <input
+                  className="form-control"
+                  name="rateOfInterest"
+                  onChange={[Function]}
+                  placeholder="Rate of Interest"
+                  required={true}
+                  type="number"
+                  value=""
+                />
+              </div>
+              <div
+                className="col"
+              >
+                <input
+                  className="form-control"
+                  name="durationOfLoan"
+                  onChange={[Function]}
+                  placeholder="Duration of Time"
+                  required={true}
+                  type="number"
+                  value=""
+                />
+              </div>
+            </div>
+            <br />
+            <div
+              className="dis"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="courseFee"
+                    onChange={[Function]}
+                    placeholder="Course Fee"
+                    type="number"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="course"
+                    onChange={[Function]}
+                    placeholder="Course"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <br />
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="fatherName"
+                    onChange={[Function]}
+                    placeholder="Father Name"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="fatherOcc"
+                    onChange={[Function]}
+                    placeholder="Father Occupation"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="fathAnInc"
+                    onChange={[Function]}
+                    placeholder="Father Annual Income"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <br />
+            </div>
+            <div
+              className="dis"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="annualInc"
+                    onChange={[Function]}
+                    placeholder="Annual Income"
+                    type="number"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="cmpName"
+                    onChange={[Function]}
+                    placeholder="Company Name"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <br />
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="desig"
+                    onChange={[Function]}
+                    placeholder="Designation"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="totExp"
+                    onChange={[Function]}
+                    placeholder="Total Experience"
+                    type="number"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col"
+                >
+                  <input
+                    className="form-control"
+                    name="expForCurrentCmp"
+                    onChange={[Function]}
+                    placeholder="Current Cmp Experience"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <br />
+            </div>
+            <button
+              className="btn-primary"
+              id="loansubmit"
+            >
+              Apply Loan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="b5"
+    >
+      <button
+        className="btn1"
+        onClick={[Function]}
+      >
+        My Loan
+      </button>
+    </div>
+  </div>
+</div>
+`;

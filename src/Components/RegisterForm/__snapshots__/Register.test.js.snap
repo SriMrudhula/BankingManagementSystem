@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test when form is submitted renders correctly 1`] = `
+<div
+  className="img1"
+>
+  <div
+    className="b1"
+  >
+    <div
+      className="heading"
+    >
+      Register
+    </div>
+    <br />
+    <div
+      className="MuiContainer-root MuiContainer-maxWidthLg"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-6"
+            >
+              <input
+                className="form-control"
+                name="name"
+                onChange={[Function]}
+                placeholder="Enter Name"
+                required={true}
+                type="text"
+                value=""
+              />
+              <div
+                className="err1"
+              >
+                
+              </div>
+            </div>
+            <div
+              className="col-6"
+            >
+              <input
+                className="form-control"
+                name="username"
+                onChange={[Function]}
+                placeholder="Enter Username"
+                required={true}
+                type="text"
+                value=""
+              />
+              <div
+                className="err1"
+              >
+                
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            className="row"
+          >
+            <div
+              className="col"
+            >
+              <input
+                className="form-control"
+                name="password"
+                onChange={[Function]}
+                placeholder="Enter Password"
+                required={true}
+                type="password"
+                value=""
+              />
+            </div>
+            <div
+              className="col"
+            >
+              <input
+                className="form-control"
+                name="confirmPwd"
+                onChange={[Function]}
+                placeholder="Enter Confirm Password"
+                required={true}
+                type="password"
+                value=""
+              />
+            </div>
+          </div>
+          <br />
+          <div
+            className="row"
+          >
+            <div
+              className="col"
+            >
+              <select
+                className="form-control"
+                id="countrySelect"
+                name="country"
+                onChange={[Function]}
+                required={true}
+                value=""
+              >
+                <option
+                  value=""
+                >
+                  Choose Country
+                </option>
+                <option
+                  value="India"
+                >
+                  India
+                </option>
+                <option
+                  value="USA"
+                >
+                  USA
+                </option>
+                <option
+                  value="Australia"
+                >
+                  Australia
+                </option>
+                <option
+                  value="UK"
+                >
+                  UK
+                </option>
+                <option
+                  value="Canada"
+                >
+                  Canada
+                </option>
+                <option
+                  value="Denmark"
+                >
+                  Denmark
+                </option>
+              </select>
+            </div>
+            <div
+              className="col"
+            >
+              <select
+                className="form-control"
+                id="stateSelect"
+                name="state"
+                onChange={[Function]}
+                required={true}
+                size="1"
+                value=""
+              >
+                <option>
+                  Choose State
+                </option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div
+            className="row"
+          >
+            <div
+              className="col-6"
+            >
+              <input
+                className="form-control"
+                name="email"
+                onChange={[Function]}
+                placeholder="Enter Email Id"
+                required={true}
+                text="email"
+                value=""
+              />
+              <div
+                className="err1"
+              >
+                
+              </div>
+              <br />
+            </div>
+            <div
+              className="col-6"
+            >
+              <input
+                className="form-control"
+                name="contact"
+                onChange={[Function]}
+                placeholder="Enter Contact Number"
+                required={true}
+                type="number"
+                value=""
+              />
+              <div
+                className="err1"
+              >
+                
+              </div>
+              <br />
+            </div>
+          </div>
+          <div
+            className="row"
+          >
+            <div
+              className="col"
+            >
+              <input
+                className="form-control"
+                id="dob"
+                max="2020-10-08"
+                name="dob"
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Date of Birth"
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              className="col"
+            >
+              <select
+                className="form-control"
+                id="accType"
+                name="accType"
+                onChange={[Function]}
+                required={true}
+                value=""
+              >
+                <option>
+                  Account Type
+                </option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div
+            className="row"
+          >
+            <div
+              className="col"
+            >
+              <input
+                className="form-control"
+                name="branchName"
+                onChange={[Function]}
+                placeholder="Enter Branch Name"
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              className="col"
+            >
+              <input
+                className="form-control"
+                name="initialDeposit"
+                onChange={[Function]}
+                placeholder="Enter Initial Deposit"
+                required={true}
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+          <br />
+          <div
+            className="row"
+          >
+            <textarea
+              className="form-control"
+              name="address"
+              onChange={[Function]}
+              placeholder="Enter Address"
+              value=""
+            />
+          </div>
+          <br />
+          <div
+            className="row"
+          >
+            <input
+              className="form-control"
+              name="identificationProofType"
+              onChange={[Function]}
+              placeholder="Enter Identification Proof type"
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+          <br />
+          <button
+            aria-label={null}
+            className="Btn btn btn-primary"
+            id="registersubmit"
+            onClick={[Function]}
+          >
+            Register
+          </button>
+        </div>
+      </form>
+      Already Registered 
+      <button
+        onClick={[Function]}
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</div>
+`;

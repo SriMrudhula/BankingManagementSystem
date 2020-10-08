@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Home.css';
-
 import {BrowserRouter as Router,Link,Route,Switch} from 'react-router-dom';
 import Deposit from './DepositForm/Deposit';
 import Loan from './Loan Form/Loan';

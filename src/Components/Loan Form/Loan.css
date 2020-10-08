@@ -3,7 +3,7 @@
     color: red;
 }
 .img2{
-    background-image: url('../../Asserts/banking.jpg');
+    background-image: url('../../Asserts/Images/banking.jpg');
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover;

@@ -33,9 +33,14 @@ class Register extends Component
         usernameError:"",  
         AccountType:false,
         duplicateUser:false,  
-
             users:[]
     }
+    constructor() 
+    {
+        super();
+        localStorage.removeItem("id");
+    }
+
     componentDidMount(){
         axios.get("http://localhost:3000/users")
         .then(response =>{
@@ -182,13 +187,13 @@ class Register extends Component
         <Row>
         <Col>
         <input type="password" name="password" placeholder="Enter Password" className="form-control" value={this.state.password} onChange={this.handleChange} required/>
-         </Col>
-    <Col>
+        </Col>
+        <Col>
         <input type="password" name="confirmPwd" placeholder="Enter Confirm Password" value={this.state.confirmPwd} className="form-control" onChange={this.handleChange} required/>
         </Col>
         </Row><br/>
         <Row>
-            <Col>
+        <Col>
         <select id="countrySelect" onChange={this.makeSubmenu} className="form-control" name="country" value={this.state.country} required>
         <option value="">Choose Country</option>
         <option value="India">India</option>
@@ -200,13 +205,13 @@ class Register extends Component
         </select>
         </Col>
         <Col>
-     <select id="stateSelect" size="1" name="state" className="form-control" value={this.state.state} onChange={this.handleChange.bind(this)} required >
+        <select id="stateSelect" size="1" name="state" className="form-control" value={this.state.state} onChange={this.handleChange.bind(this)} required >
         <option>Choose State</option>
         </select>
         </Col>
         </Row><br/>
         <Row>
-            <Col xs={6}>
+        <Col xs={6}>
         <input text="email" value={this.state.email} placeholder="Enter Email Id" name="email" className="form-control" onChange={this.handleChange} required/>
         <div className="err1">{this.state.emailError}</div><br/>
         </Col>
@@ -214,7 +219,7 @@ class Register extends Component
         <input type="number" value={this.state.contact} placeholder="Enter Contact Number" name="contact" className="form-control" onChange={this.handleChange} required/>
         <div className="err1">{this.state.contactError}</div><br/>
         </Col></Row>
-            <Row>
+        <Row>
         <Col>
         <input type="text" id="dob" placeholder="Date of Birth" onFocus={this._onFocus} value={this.state.dob} className="form-control" max={new Date().toISOString().split("T")[0]} onChange={this.setAccountType} name="dob" required/>
         </Col>
@@ -238,7 +243,7 @@ class Register extends Component
         <Row>
         <input type="text" value={this.state.identificationProofType} placeholder="Enter Identification Proof type" className="form-control" name="identificationProofType" onChange={this.handleChange} required/> 
         </Row><br/>
-        <Button className="Btn" color="primary">Register</Button>
+        <Button className="Btn" id="registersubmit" color="primary">Register</Button>
         </div>
         </form>
         Already Registered <button onClick={this.handleLogin}>Login</button> 

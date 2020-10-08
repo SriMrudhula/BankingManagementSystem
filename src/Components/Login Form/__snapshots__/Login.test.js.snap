@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test when form is submitted renders correctly 1`] = `
+<div
+  className="img2"
+>
+  <div
+    className="b3"
+  >
+    <div
+      className="heading"
+    >
+      Login
+    </div>
+    <br />
+    <br />
+    <div
+      className="MuiContainer-root MuiContainer-maxWidthLg"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <div
+            className="row"
+          >
+            <input
+              className="form-control"
+              name="username"
+              onChange={[Function]}
+              placeholder="Enter UserName"
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+          <br />
+          <div
+            className="row"
+          >
+            <input
+              className="form-control"
+              name="password"
+              onChange={[Function]}
+              placeholder="Enter Password"
+              required={true}
+              type="password"
+              value=""
+            />
+          </div>
+          <br />
+          <button
+            className="btn-primary"
+            id="loginsubmit"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+    Create an Account 
+    <button
+      onClick={[Function]}
+    >
+      Register
+    </button>
+  </div>
+</div>
+`;

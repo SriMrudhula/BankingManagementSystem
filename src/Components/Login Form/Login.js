@@ -27,7 +27,8 @@ class Login extends Component
         });
     };
     
-    handleSubmit= event =>{
+    handleSubmit= event =>
+    {
         for(let i=0;i<this.state.users.length;i++)
         {
             console.log(this.state.users[i].username+" "+this.state.username);
@@ -52,20 +53,24 @@ class Login extends Component
                  alert("Successfully Loggedin");
                  this.handleClick("home");  
                  break;
-             }
+                 }
              else
                  this.state.x="invalid user";             
              }
             if(this.state.x==="invalid user")
                alert("invalid");
-        }
+    }
+
     handleRegister=()=>
     {
         this.handleClick("register");  
     }
-    handleClick = event => {
+
+    handleClick = event => 
+    {
         this.props.handleClick(event);     
     };   
+
     render()
     {
         return (
@@ -82,7 +87,7 @@ class Login extends Component
             <input name="password" type="password" placeholder="Enter Password" className="form-control" value={this.state.password} onChange={this.handleChange} required/>
             
             </Row><br/>
-            <button className="btn-primary">Login</button>
+            <button className="btn-primary" id="loginsubmit">Login</button>
             </div>
             </form>
             </Container>
