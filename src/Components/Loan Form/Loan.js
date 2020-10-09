@@ -25,13 +25,14 @@ class Loan extends Component
         totExp:"",
         expForCurrentCmp:"",
         loan:false,
+        redirect:null,
         loanValue:0
     }
 
     constructor(){
         super();
         if(localStorage.getItem("id")===null){
-        this.setState({ redirect: "/register"}); 
+        this.state.redirect="/logout"; 
         }
         this.state.id=localStorage.getItem("id");
         this.state.accHoldername= localStorage.getItem("name");
@@ -71,6 +72,7 @@ class Loan extends Component
                     "\n Father Name : "+response.data[0].fatherName+
                     "                Father Occupation:"+response.data[0].fatherOcc+
                     "\n Father Annual Income:"+response.data[0].fathAnInc);
+                    this.setState({ redirect: "/home" });
                }
                else if(response.data[0].loanValue===2)
                {
@@ -112,18 +114,17 @@ class Loan extends Component
             .then(respone =>{
                 console.log(respone)  
                 alert("Applied for loan successfully");
+                this.setState({ redirect: "/home" });
             })
             .catch(error=>{
                 console.log(error)
             })
         }
     }
-
     render()
     {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect} />
-        
         }
         return (
             <div className="img2">

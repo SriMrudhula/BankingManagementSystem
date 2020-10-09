@@ -1,3 +1,102 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test when form is submitted renders correctly 1`] = `null`;
+exports[`Test when form is submitted renders correctly 1`] = `
+<div
+  className="img3"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="b2"
+    >
+      <div
+        className="heading"
+      >
+        Deposit
+      </div>
+      <div
+        className="MuiContainer-root MuiContainer-maxWidthLg"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col"
+              >
+                <label>
+                  Name
+                </label>
+                <input
+                  className="form-control"
+                  name="name"
+                  onChange={[Function]}
+                  type="text"
+                  value={null}
+                />
+              </div>
+              <div
+                className="col"
+              >
+                <label>
+                  Account type
+                </label>
+                <input
+                  className="form-control"
+                  name="accType"
+                  onChange={[Function]}
+                  required={true}
+                  type="text"
+                  value={null}
+                />
+              </div>
+            </div>
+            <br />
+            <div
+              className="row"
+            >
+              <label>
+                Deposit Amount
+              </label>
+              <input
+                className="form-control"
+                name="deposit"
+                onChange={[Function]}
+                required={true}
+                type="number"
+                value=""
+              />
+            </div>
+            <br />
+            <button
+              className="btn-primary"
+              id="depositsubmit"
+            >
+              Deposit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="b6"
+    >
+      <form>
+        <button
+          className="btn1"
+          onClick={[Function]}
+          type="submit"
+        >
+          My Balance
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

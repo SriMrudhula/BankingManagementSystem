@@ -16,13 +16,9 @@ describe('Test when form is submitted', () => {
         form.instance().handleSubmit();
         form.update(); 
         form.find('#loginsubmit').simulate('submit');
-
-
         expect(form.find('#loginsubmit').length).toEqual(1);
         expect(form.instance().handleSubmit).toHaveBeenCalled();
-        // expect(form.instance().handleSubmit.toHaveBeCalledWith({username: testValues.username, password: testValues.password});
     });
-    
     it('renders correctly', () => {
         const tree = renderer.create(<BrowserRouter><Login/></BrowserRouter>).toJSON();
         expect(tree).toMatchSnapshot();

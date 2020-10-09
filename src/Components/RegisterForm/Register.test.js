@@ -12,12 +12,9 @@ describe('Test when form is submitted', () => {
         form.instance().handleSubmit();
         form.update(); 
         form.find('#registersubmit').simulate('submit');
-
-
         expect(form.find('#registersubmit').length).toEqual(1);
         expect(form.instance().handleSubmit).toHaveBeenCalled();
     });
-    
     it('renders correctly', () => {
         const tree = renderer.create(<BrowserRouter><Register/></BrowserRouter>).toJSON();
         expect(tree).toMatchSnapshot();

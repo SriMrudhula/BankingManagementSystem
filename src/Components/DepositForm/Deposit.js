@@ -24,7 +24,6 @@ class Deposit extends Component
       identificationProofType:""}
     ],
     deposit:"",
-    redirect: null 
   }
 
   constructor(){
@@ -46,7 +45,6 @@ class Deposit extends Component
     this.state.users[0].branchName=localStorage.getItem("branchName");
     this.state.users[0].initialDeposit=localStorage.getItem("initialDeposit");
     this.state.users[0].identificationProofType=localStorage.getItem("identificationProofType");
-    this.state.accountType=localStorage.getItem("accType"); 
   }
 
   handleChange =event=>{
@@ -99,24 +97,21 @@ class Deposit extends Component
       </Col>
       <Col>
       <label>Account type</label>
-      <select  value={this.state.users[0].accType} name="accType" className="form-control" onChange={this.handleChange} required>
-      <option value="Salary Account">Salary Account</option>
-      <option value="Saving Account">Saving Account</option>
-      </select>
+      <input  type="text" value={this.state.users[0].accType} name="accType" className="form-control" onChange={this.handleChange} required/>
       </Col>
       </Row><br/>
       <Row>
       <label>Deposit Amount</label>
       <input type="number" value={this.state.deposit} name="deposit" className="form-control" onChange={this.handleChange} required/>
       </Row><br/>
-      <button className="btn-primary">Deposit</button>
+      <button id="depositsubmit" className="btn-primary">Deposit</button>
       </div>
       </form> 
       </Container>
       </div>
       <div className="b6">
       <form >
-      <button className="btn1" type="submit" id="depositsubmit" onClick={this.checkBalance}>My Balance</button>
+      <button className="btn1" type="submit"  onClick={this.checkBalance}>My Balance</button>
       </form> 
       </div>
       </Row>
